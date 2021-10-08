@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			.clearfix::after {
+				content: '';
+				display: block;
+				clear: both;
+			}
+			.overFlower {
+				background-color: aqua;
+				width: 400px;
+				height: 100px;
+				display: none;
+			}
+			.floatation {
+				position: absolute;
+				left: 40%;
+				top: 45%;
+				display: none;	
+				background-color: blueviolet;
+				width: 300px;
+				height: 100px;
+				text-align: center;
+			}
+			.four {
+				width: 500px;
+				height: 500px;
+				border: 1px solid;
+				/* background-color: yellow ; */
+			}
+			.on {
+				
+				width: 500px;
+				height: 300px;
+				/* background-color: aqua; */
+			}
+			.down {
+				width: 500px;
+				height: 200px;
+			}
+			.down1{
+				float: left;
+				width: 150px;
+				height: 200px;
+				/* background-color: red; */
+				margin-left: 10px;
+			}
+			.down2 {
+				float: left;
+				width: 150px;
+				height: 200px;
+				/* background-color: red; */
+				margin-left: 10px;
+			}
+			.down3 {
+				float: left;
+				width: 150px;
+				height: 200px;
+				/* background-color: red; */
+				margin-left: 10px;
+			}
+			.five {
+				position: relative;
+			}
+			span {
+				position: absolute;
+			}
+			#eyeone {
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<button type="button">双击</button>
+		<div class="overFlower">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos cumque voluptates aliquid velit suscipit rerum accusamus ullam labore harum officia quaerat sequi libero error quos mollitia nihil asperiores ex alias.</div>
+		<a href="#" class="login" >登录</a>
+		<div class="floatation">
+			<form action="" method="">
+				账号:<input type="text"><br>
+				密码:<input type="password"><br>
+				<button type="button" class="shut">关闭界面</button>
+			</form>
+		</div>
+		<div>
+			<input type="text" value="搜索" id="three">
+		</div>
+		<div class="four clearfix">
+			<div class="on"><img id="img4" src="img/宝宝.jpg" width="500px" height="270px" ></div>
+			<div class="down">
+				<div class="down1"><a href="#"><img id='img1' src="img/宝宝.jpg" alt="" width="150px" height="200px"></a></div>
+				<div class="down2"><a href="#"><img id='img2' src="img/潮流男鞋-4.jpg" alt="" width="150px" height="200px"></a></div>
+				<div class="down3"><a href="#"><img id='img3' src="img/精修选厂.jpg" alt="" width="150px" height="200px"></a></div>
+			</div>
+		</div>
+		<div class="five">
+			账号:<input type="text" id="fiveOne">
+			密码:<input type="password" name="" id="fiveTwo" /><span><a href="#"><img src="img/eyesee(1).png" id="eyesee" ><img id='eyeone' src="img/eyenone(1).png" ></a></span>
+		</div>
+		<script type="text/javascript">
+			// 第一个作业
+			const overButton = document.querySelector('button');
+			const overFlower = document.querySelector('.overFlower');
+			function mouseShow() {
+				overFlower.style.display='block';
+			}
+			function mouseHidden() {
+				overFlower.style.display='none';
+			}
+			overButton.addEventListener('mouseover',mouseShow);
+			overButton.addEventListener('mouseout',mouseHidden);
+			// 第二个作业
+			const shut = document.querySelector('.shut');
+			const login = document.querySelector('.login');
+			const floatations = document.querySelector('.floatation');
+			function floatation() {
+				// floatations.style.position='relative';
+				floatations.style.display='block';
+			}
+			function shutDown() {
+				floatations.style.display='none';
+			}
+			login.addEventListener('click',floatation);
+			shut.addEventListener('click',shutDown);
+			// 	第三个作业
+			const threes = document.querySelector('#three');
+			let userWrite = threes.value;
+			function defaultContent() {
+				if( threes.value === '搜索') {
+					threes.value='';
+				}else {
+					threes.value.display='';
+				}
+			}
+			function defaultFocusout() {
+				if( threes.value === '') {
+					threes.value='搜索';
+				}else {
+					threes.value.display='';  /*不用这段代码出不来如果失去焦点其他内容不变的效果*/
+				}
+			}
+			threes.addEventListener('focusin',defaultContent);
+			threes.addEventListener('focusout',defaultFocusout);
+			/* 第四个作业*/
+			const down1 = document.querySelector('.down1 #img1');
+			const down2 = document.querySelector('.down2 #img2');
+			const down3 = document.querySelector('.down3 #img3');
+			const down4 = document.querySelector('.on #img4');
+			down2.onmouseover=function() {
+				down4.src='img/潮流男鞋-4.jpg';
+			}
+			down3.onmouseover=function() {
+				down4.src='img/精修选厂.jpg';
+			}
+			down1.onmouseover=function() {
+				down4.src='img/宝宝.jpg';
+			}
+			/*  第五个作业 */
+			const eyesee =document.querySelector('#eyesee');
+			const eyeOne = document.querySelector('.five #eyeone');
+			const fiveTwo = document.querySelector('#fiveTwo');
+			eyesee.onclick= function(){
+				fiveTwo.type='text';
+				eyeone.style.display='block';
+				eyesee.style.display='none';
+			}
+			eyeOne.onclick= function(){
+				fiveTwo.type='password';
+				eyesee.style.display='block';
+				eyeone.style.display='none';
+			}
+		</script>
+	</body>
+</html>
